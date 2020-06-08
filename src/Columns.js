@@ -14,7 +14,6 @@ const alignmentsY = ["start", "end", "center", "stretch"];
 
 const Grid = styled.div`
   display: grid;
-  background: hotpink;
   width: ${({ inline }) => (inline ? "max-content" : "auto")};
   column-gap: ${({ space }) => space || "0px"};
   grid-template-columns: ${({ widths = [] }) => widths.join(" ")};

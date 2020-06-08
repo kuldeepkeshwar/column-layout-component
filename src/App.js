@@ -7,6 +7,7 @@ const bluish = "rgb(117, 172, 253)";
 
 const Card = styled.div`
   background: ${({ bg }) => bg || yellowish};
+  width: ${({ width }) => width || "auto"};
 `;
 const Box = styled.div`
   background: ${({ bg }) => bg || bluish};
@@ -23,7 +24,7 @@ function InlineExamples() {
   return (
     <>
       <Text size="24">Inline</Text>
-      <Card>
+      <Card width="max-content">
         <Columns space="20px" inline={true}>
           <Columns.Column width="100px">
             <Box>Column 1</Box>
