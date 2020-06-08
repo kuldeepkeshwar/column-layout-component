@@ -11,7 +11,7 @@ const Card = styled.div`
 const Box = styled.div`
   background: ${({ bg }) => bg || bluish};
   font-size: 20px;
-  padding: 8px;
+  padding: 8px 0 8px 0;
   height: ${({ height }) => height || "auto"};
 `;
 const Text = styled.div`
@@ -19,6 +19,26 @@ const Text = styled.div`
   font-weight: bold;
   text-align: center;
 `;
+function InlineExamples() {
+  return (
+    <>
+      <Text size="24">Inline</Text>
+      <Card>
+        <Columns space="20px" inline={true}>
+          <Columns.Column width="100px">
+            <Box>Column 1</Box>
+          </Columns.Column>
+          <Columns.Column width="100px">
+            <Box>Column 2</Box>
+          </Columns.Column>
+          <Columns.Column width="100px">
+            <Box>Column 3</Box>
+          </Columns.Column>
+        </Columns>
+      </Card>
+    </>
+  );
+}
 function AlignYExamples() {
   return (
     <>
@@ -67,54 +87,10 @@ function AlignYExamples() {
           </Columns.Column>
         </Columns>
       </Card>
-      <br />
-      <Text>Space Between</Text>
-      <Card>
-        <Columns alignY="space-between">
-          <Columns.Column width="100px">
-            <Box>Column 1</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box height="40px">Column 2</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 3</Box>
-          </Columns.Column>
-        </Columns>
-      </Card>
-      <br />
-      <Text>Space Around</Text>
-      <Card>
-        <Columns alignY="space-around">
-          <Columns.Column width="100px">
-            <Box>Column 1</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box height="40px">Column 2</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 3</Box>
-          </Columns.Column>
-        </Columns>
-      </Card>
-      <br />
-      <Text>Space Evenly</Text>
-      <Card>
-        <Columns alignY="space-evenly">
-          <Columns.Column width="100px">
-            <Box>Column 1</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box height="40px">Column 2</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 3</Box>
-          </Columns.Column>
-        </Columns>
-      </Card>
     </>
   );
 }
+
 function AlignExamples() {
   return (
     <>
@@ -281,6 +257,21 @@ function ColumnWidthExamples() {
         </Columns>
       </Card>
       <br />
+      <Text>Column Width: content</Text>
+      <Card>
+        <Columns space="20px">
+          <Columns.Column width="content">
+            <Box>Column 1</Box>
+          </Columns.Column>
+          <Columns.Column width="content">
+            <Box>Column 2</Box>
+          </Columns.Column>
+          <Columns.Column width="content">
+            <Box>Column 3</Box>
+          </Columns.Column>
+        </Columns>
+      </Card>
+      <br />
       <Text>Column Width: varying</Text>
       <Card>
         <Columns space="20px">
@@ -308,6 +299,8 @@ export default function App() {
       <AlignExamples />
       <br />
       <AlignYExamples />
+      <br />
+      <InlineExamples />
     </>
   );
 }
