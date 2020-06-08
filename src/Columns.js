@@ -10,6 +10,7 @@ const alignments = [
   "space-between",
   "space-evenly"
 ];
+const alignmentsY = ["start", "end", "center", "stretch"];
 
 const Grid = styled.div`
   display: grid;
@@ -18,14 +19,14 @@ const Grid = styled.div`
   column-gap: ${({ space }) => space || "0px"};
   grid-template-columns: ${({ widths = [] }) => widths.join(" ")};
   justify-content: ${({ align }) => align || "stretch"};
-  align-content: ${({ alignY }) => alignY || "stretch"};
+  align-items: ${({ alignY }) => alignY || "stretch"};
 `;
 const Cell = styled.div``;
 export function Columns({ children, space, align, alignY, inline }) {
   const widths = [];
   const Columns = React.Children.toArray(children).map(
     ({ props: { width, children, ...rest }, type }) => {
-      widths.push(width || "auto");
+      widths.push(width === "content" ? "max-content" : width || "1fr");
       return React.createElement(type, { ...rest }, children);
     }
   );
