@@ -21,13 +21,16 @@ function size({ theme: { sizes = {} } = {}, widths = [] }) {
 }
 const Grid = styled.div`
   display: grid;
+  overflow:scroll;
   width: ${({ inline }) => (inline ? "max-content" : "auto")};
   column-gap: ${gap};
   grid-template-columns: ${size};
   justify-content: ${({ align }) => align || "stretch"};
   align-items: ${({ alignY }) => alignY || "stretch"};
 `;
-const Cell = styled.div``;
+const Cell = styled.div`
+  min-width: 0;
+`;
 export function Columns({ children, gap, align, alignY, inline }) {
   const widths = [];
   const Columns = React.Children.toArray(children).map(

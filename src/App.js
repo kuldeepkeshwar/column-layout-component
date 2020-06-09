@@ -1,45 +1,33 @@
 import React from "react";
-import styled from "@emotion/styled";
 import { Columns } from "./Columns";
 import { ThemeProvider } from "emotion-theming";
-const yellowish = "rgb(245, 186, 76)";
-const bluish = "rgb(117, 172, 253)";
+import ExampleHOF from "./Example";
+import { Text, Box } from "./components";
 
-const Card = styled.div`
-  background: ${({ bg }) => bg || yellowish};
-  width: ${({ width }) => width || "auto"};
-`;
-const Box = styled.div`
-  background: ${({ bg }) => bg || bluish};
-  font-size: 20px;
-  padding: 8px 0 8px 0;
-  height: ${({ height }) => height || "auto"};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-const Text = styled.div`
-  font-size: ${({ size = 12 }) => `${size}px`};
-  font-weight: bold;
-  text-align: center;
-`;
+const Example = ExampleHOF({ scope: { Columns, Box } });
+
 function InlineExamples() {
   return (
     <>
-      <Text size="24">Inline</Text>
-      <Card width="max-content">
-        <Columns gap="20px" inline={true}>
-          <Columns.Column width="100px">
-            <Box>Column 1</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 2</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 3</Box>
-          </Columns.Column>
-        </Columns>
-      </Card>
+      <Text size="24" padding="0 0 8px 0">
+        Inline
+      </Text>
+      <Example
+        cardProps={{ width: "max-content" }}
+        code={`
+<Columns gap="20px" inline={true}>
+  <Columns.Column width="100px">
+    <Box>Column 1</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box>Column 2</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box>Column 3</Box>
+  </Columns.Column>
+</Columns>
+`}
+      />
     </>
   );
 }
@@ -47,50 +35,58 @@ function AlignYExamples() {
   return (
     <>
       <Text size="24">AlignY</Text>
-      <Text>Start</Text>
-      <Card>
-        <Columns gap="20px" alignY="start">
-          <Columns.Column width="100px">
-            <Box>Column 1</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box height="40px">Column 2</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 3</Box>
-          </Columns.Column>
-        </Columns>
-      </Card>
+      <Text padding="0 0 8px 0">Start</Text>
+      <Example
+        code={`
+<Columns gap="20px" alignY="start">
+  <Columns.Column width="100px">
+    <Box>Column 1</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box height="40px">Column 2</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box>Column 3</Box>
+  </Columns.Column>
+</Columns>
+`}
+      />
+
       <br />
-      <Text>End</Text>
-      <Card>
-        <Columns gap="20px" alignY="end">
-          <Columns.Column width="100px">
-            <Box>Column 1</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box height="40px">Column 2</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 3</Box>
-          </Columns.Column>
-        </Columns>
-      </Card>
+      <Text padding="0 0 8px 0">End</Text>
+      <Example
+        code={`
+<Columns gap="20px" alignY="end">
+  <Columns.Column width="100px">
+    <Box>Column 1</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box height="40px">Column 2</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box>Column 3</Box>
+  </Columns.Column>
+</Columns>
+`}
+      />
+
       <br />
-      <Text>Center</Text>
-      <Card>
-        <Columns gap="20px" alignY="center">
-          <Columns.Column width="100px">
-            <Box>Column 1</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box height="40px">Column 2</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 3</Box>
-          </Columns.Column>
-        </Columns>
-      </Card>
+      <Text padding="0 0 8px 0">Center</Text>
+      <Example
+        code={`
+<Columns gap="20px" alignY="center">
+  <Columns.Column width="100px">
+    <Box>Column 1</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box height="40px">Column 2</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box>Column 3</Box>
+  </Columns.Column>
+</Columns>
+`}
+      />
     </>
   );
 }
@@ -99,95 +95,109 @@ function AlignExamples() {
   return (
     <>
       <Text size="24">Align</Text>
-      <Text>Start</Text>
-      <Card>
-        <Columns gap="20px" align="start">
-          <Columns.Column width="100px">
-            <Box>Column 1</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 2</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 3</Box>
-          </Columns.Column>
-        </Columns>
-      </Card>
+      <Text padding="0 0 8px 0">Start</Text>
+      <Example
+        code={`
+<Columns gap="20px" align="start">
+  <Columns.Column width="100px">
+    <Box>Column 1</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box>Column 2</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box>Column 3</Box>
+  </Columns.Column>
+</Columns>
+`}
+      />
       <br />
-      <Text>End</Text>
-      <Card>
-        <Columns gap="20px" align="end">
-          <Columns.Column width="100px">
-            <Box>Column 1</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 2</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 3</Box>
-          </Columns.Column>
-        </Columns>
-      </Card>
+      <Text padding="0 0 8px 0">End</Text>
+      <Example
+        code={`
+<Columns gap="20px" align="end">
+  <Columns.Column width="100px">
+    <Box>Column 1</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box>Column 2</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box>Column 3</Box>
+  </Columns.Column>
+</Columns>
+        `}
+      />
       <br />
-      <Text>Center</Text>
-      <Card>
-        <Columns gap="20px" align="center">
-          <Columns.Column width="100px">
-            <Box>Column 1</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 2</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 3</Box>
-          </Columns.Column>
-        </Columns>
-      </Card>
+      <Text padding="0 0 8px 0">Center</Text>
+      <Example
+        code={`
+<Columns gap="20px" align="center">
+  <Columns.Column width="100px">
+    <Box>Column 1</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box>Column 2</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box>Column 3</Box>
+  </Columns.Column>
+</Columns>
+        `}
+      />
       <br />
-      <Text>Space Between</Text>
-      <Card>
-        <Columns align="space-between">
-          <Columns.Column width="100px">
-            <Box>Column 1</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 2</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 3</Box>
-          </Columns.Column>
-        </Columns>
-      </Card>
+      <Text padding="0 0 8px 0">Space Between</Text>
+      <Example
+        code={`
+<Columns align="space-between">
+  <Columns.Column width="100px">
+    <Box>Column 1</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box>Column 2</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box>Column 3</Box>
+  </Columns.Column>
+</Columns>
+      `}
+      />
+
       <br />
-      <Text>Space Around</Text>
-      <Card>
-        <Columns align="space-around">
-          <Columns.Column width="100px">
-            <Box>Column 1</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 2</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 3</Box>
-          </Columns.Column>
-        </Columns>
-      </Card>
+      <Text padding="0 0 8px 0">Space Around</Text>
+      <Example
+        code={`
+<Columns align="space-around">
+  <Columns.Column width="100px">
+    <Box>Column 1</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box>Column 2</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box>Column 3</Box>
+  </Columns.Column>
+</Columns>
+      `}
+      />
+
       <br />
-      <Text>Space Evenly</Text>
-      <Card>
-        <Columns align="space-evenly">
-          <Columns.Column width="100px">
-            <Box>Column 1</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 2</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 3</Box>
-          </Columns.Column>
-        </Columns>
-      </Card>
+      <Text padding="0 0 8px 0">Space Evenly</Text>
+      <Example
+        code={`
+<Columns align="space-evenly">
+  <Columns.Column width="100px">
+    <Box>Column 1</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box>Column 2</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box>Column 3</Box>
+  </Columns.Column>
+</Columns>      
+      `}
+      />
     </>
   );
 }
@@ -195,35 +205,39 @@ function ColumnGapExamples() {
   return (
     <>
       <Text size="24">Column Gap</Text>
-      <Text>Column Gap: 20px</Text>
-      <Card>
-        <Columns gap="20px">
-          <Columns.Column width="100px">
-            <Box>Column 1</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 2</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 3</Box>
-          </Columns.Column>
-        </Columns>
-      </Card>
+      <Text padding="0 0 8px 0">Column Gap: 20px</Text>
+      <Example
+        code={`
+<Columns gap="20px">
+  <Columns.Column width="100px">
+    <Box>Column 1</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box>Column 2</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box>Column 3</Box>
+  </Columns.Column>
+</Columns>      
+      `}
+      />
       <br />
-      <Text>Column Gap: 40px</Text>
-      <Card>
-        <Columns gap="40px">
-          <Columns.Column width="100px">
-            <Box>Column 1</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 2</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 3</Box>
-          </Columns.Column>
-        </Columns>
-      </Card>
+      <Text padding="0 0 8px 0">Column Gap: 40px</Text>
+      <Example
+        code={`
+<Columns gap="40px">
+  <Columns.Column width="100px">
+    <Box>Column 1</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box>Column 2</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box>Column 3</Box>
+  </Columns.Column>
+</Columns>      
+      `}
+      />
     </>
   );
 }
@@ -231,65 +245,69 @@ function ColumnWidthExamples() {
   return (
     <>
       <Text size="24">Column Width</Text>
-      <Text>Column Width: 100px</Text>
-      <Card>
-        <Columns gap="20px">
-          <Columns.Column width="100px">
-            <Box>Column 1</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 2</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 3</Box>
-          </Columns.Column>
-        </Columns>
-      </Card>
+      <Text padding="0 0 8px 0">Column Width: 100px</Text>
+      <Example
+        code={`
+<Columns gap="20px">
+  <Columns.Column width="100px">
+    <Box>Column 1</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box>Column 2</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box>Column 3</Box>
+  </Columns.Column>
+</Columns>`}
+      />
       <br />
-      <Text>Column Width: 150px</Text>
-      <Card>
-        <Columns gap="20px">
-          <Columns.Column width="150px">
-            <Box>Column 1</Box>
-          </Columns.Column>
-          <Columns.Column width="150px">
-            <Box>Column 2</Box>
-          </Columns.Column>
-          <Columns.Column width="150px">
-            <Box>Column 3</Box>
-          </Columns.Column>
-        </Columns>
-      </Card>
+      <Text padding="0 0 8px 0">Column Width: 150px</Text>
+      <Example
+        code={`
+<Columns gap="20px">
+  <Columns.Column width="150px">
+    <Box>Column 1</Box>
+  </Columns.Column>
+  <Columns.Column width="150px">
+    <Box>Column 2</Box>
+  </Columns.Column>
+  <Columns.Column width="150px">
+    <Box>Column 3</Box>
+  </Columns.Column>
+</Columns>`}
+      />
       <br />
-      <Text>Column Width: content</Text>
-      <Card>
-        <Columns gap="20px">
-          <Columns.Column width="content">
-            <Box>Column 1</Box>
-          </Columns.Column>
-          <Columns.Column width="content">
-            <Box>Column 2</Box>
-          </Columns.Column>
-          <Columns.Column width="content">
-            <Box>Column 3</Box>
-          </Columns.Column>
-        </Columns>
-      </Card>
+      <Text padding="0 0 8px 0">Column Width: content</Text>
+      <Example
+        code={`
+<Columns gap="20px">
+  <Columns.Column width="content">
+    <Box>Column 1</Box>
+  </Columns.Column>
+  <Columns.Column width="content">
+    <Box>Column 2</Box>
+  </Columns.Column>
+  <Columns.Column width="content">
+    <Box>Column 3</Box>
+  </Columns.Column>
+</Columns>`}
+      />
       <br />
-      <Text>Column Width: varying</Text>
-      <Card>
-        <Columns gap="20px">
-          <Columns.Column width="content">
-            <Box>Column 1</Box>
-          </Columns.Column>
-          <Columns.Column width="100px">
-            <Box>Column 2</Box>
-          </Columns.Column>
-          <Columns.Column width="150px">
-            <Box>Column 3</Box>
-          </Columns.Column>
-        </Columns>
-      </Card>
+      <Text padding="0 0 8px 0">Column Width: varying</Text>
+      <Example
+        code={`
+<Columns gap="20px">
+  <Columns.Column width="content">
+    <Box>Column 1</Box>
+  </Columns.Column>
+  <Columns.Column width="100px">
+    <Box>Column 2</Box>
+  </Columns.Column>
+  <Columns.Column width="150px">
+    <Box>Column 3</Box>
+  </Columns.Column>
+</Columns>`}
+      />
     </>
   );
 }
@@ -300,26 +318,33 @@ function ScaleExample() {
   };
   return (
     <ThemeProvider theme={theme}>
-      <Text size="24">Theming(scale based)</Text>
-      <Card>
-        <Columns gap="5">
-          <Columns.Column width="1">
-            <Box>Column 1</Box>
-          </Columns.Column>
-          <Columns.Column width="2">
-            <Box>Column 2</Box>
-          </Columns.Column>
-          <Columns.Column width="3">
-            <Box>Column 3</Box>
-          </Columns.Column>
-        </Columns>
-      </Card>
+      <Text size="24" padding="0 0 8px 0">
+        Theming(scale based)
+      </Text>
+      <Example
+        code={`
+<Columns gap="5">
+  <Columns.Column width="1">
+    <Box>Column 1</Box>
+  </Columns.Column>
+  <Columns.Column width="2">
+    <Box>Column 2</Box>
+  </Columns.Column>
+  <Columns.Column width="3">
+    <Box>Column 3</Box>
+  </Columns.Column>
+</Columns>
+`}
+      />
     </ThemeProvider>
   );
 }
 export default function App() {
   return (
     <>
+      <Text size="30" padding="0 0 10px 0">
+        Column Layout(Component) using CSS Grid
+      </Text>
       <ColumnWidthExamples />
       <br />
       <ColumnGapExamples />
