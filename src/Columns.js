@@ -6,22 +6,22 @@ const alignments = [
   "end",
   "center",
   "stretch",
-  "space-around",
-  "space-between",
-  "space-evenly"
+  "gap-around",
+  "gap-between",
+  "gap-evenly"
 ];
 const alignmentsY = ["start", "end", "center", "stretch"];
 
 const Grid = styled.div`
   display: grid;
   width: ${({ inline }) => (inline ? "max-content" : "auto")};
-  column-gap: ${({ space }) => space || "0px"};
+  column-gap: ${({ gap }) => gap || "0px"};
   grid-template-columns: ${({ widths = [] }) => widths.join(" ")};
   justify-content: ${({ align }) => align || "stretch"};
   align-items: ${({ alignY }) => alignY || "stretch"};
 `;
 const Cell = styled.div``;
-export function Columns({ children, space, align, alignY, inline }) {
+export function Columns({ children, gap, align, alignY, inline }) {
   const widths = [];
   const Columns = React.Children.toArray(children).map(
     ({ props: { width, children, ...rest }, type }) => {
@@ -31,7 +31,7 @@ export function Columns({ children, space, align, alignY, inline }) {
   );
   return (
     <Grid
-      space={space}
+      gap={gap}
       widths={widths}
       align={align}
       alignY={alignY}

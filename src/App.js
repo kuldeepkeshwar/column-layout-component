@@ -28,7 +28,7 @@ function InlineExamples() {
     <>
       <Text size="24">Inline</Text>
       <Card width="max-content">
-        <Columns space="20px" inline={true}>
+        <Columns gap="20px" inline={true}>
           <Columns.Column width="100px">
             <Box>Column 1</Box>
           </Columns.Column>
@@ -49,7 +49,7 @@ function AlignYExamples() {
       <Text size="24">AlignY</Text>
       <Text>Start</Text>
       <Card>
-        <Columns space="20px" alignY="start">
+        <Columns gap="20px" alignY="start">
           <Columns.Column width="100px">
             <Box>Column 1</Box>
           </Columns.Column>
@@ -64,7 +64,7 @@ function AlignYExamples() {
       <br />
       <Text>End</Text>
       <Card>
-        <Columns space="20px" alignY="end">
+        <Columns gap="20px" alignY="end">
           <Columns.Column width="100px">
             <Box>Column 1</Box>
           </Columns.Column>
@@ -79,7 +79,7 @@ function AlignYExamples() {
       <br />
       <Text>Center</Text>
       <Card>
-        <Columns space="20px" alignY="center">
+        <Columns gap="20px" alignY="center">
           <Columns.Column width="100px">
             <Box>Column 1</Box>
           </Columns.Column>
@@ -101,7 +101,7 @@ function AlignExamples() {
       <Text size="24">Align</Text>
       <Text>Start</Text>
       <Card>
-        <Columns space="20px" align="start">
+        <Columns gap="20px" align="start">
           <Columns.Column width="100px">
             <Box>Column 1</Box>
           </Columns.Column>
@@ -116,7 +116,7 @@ function AlignExamples() {
       <br />
       <Text>End</Text>
       <Card>
-        <Columns space="20px" align="end">
+        <Columns gap="20px" align="end">
           <Columns.Column width="100px">
             <Box>Column 1</Box>
           </Columns.Column>
@@ -131,7 +131,7 @@ function AlignExamples() {
       <br />
       <Text>Center</Text>
       <Card>
-        <Columns space="20px" align="center">
+        <Columns gap="20px" align="center">
           <Columns.Column width="100px">
             <Box>Column 1</Box>
           </Columns.Column>
@@ -197,7 +197,7 @@ function ColumnGapExamples() {
       <Text size="24">Column Gap</Text>
       <Text>Column Gap: 20px</Text>
       <Card>
-        <Columns space="20px">
+        <Columns gap="20px">
           <Columns.Column width="100px">
             <Box>Column 1</Box>
           </Columns.Column>
@@ -212,7 +212,7 @@ function ColumnGapExamples() {
       <br />
       <Text>Column Gap: 40px</Text>
       <Card>
-        <Columns space="40px">
+        <Columns gap="40px">
           <Columns.Column width="100px">
             <Box>Column 1</Box>
           </Columns.Column>
@@ -233,7 +233,7 @@ function ColumnWidthExamples() {
       <Text size="24">Column Width</Text>
       <Text>Column Width: 100px</Text>
       <Card>
-        <Columns space="20px">
+        <Columns gap="20px">
           <Columns.Column width="100px">
             <Box>Column 1</Box>
           </Columns.Column>
@@ -248,7 +248,7 @@ function ColumnWidthExamples() {
       <br />
       <Text>Column Width: 150px</Text>
       <Card>
-        <Columns space="20px">
+        <Columns gap="20px">
           <Columns.Column width="150px">
             <Box>Column 1</Box>
           </Columns.Column>
@@ -263,7 +263,7 @@ function ColumnWidthExamples() {
       <br />
       <Text>Column Width: content</Text>
       <Card>
-        <Columns space="20px">
+        <Columns gap="20px">
           <Columns.Column width="content">
             <Box>Column 1</Box>
           </Columns.Column>
@@ -278,7 +278,7 @@ function ColumnWidthExamples() {
       <br />
       <Text>Column Width: varying</Text>
       <Card>
-        <Columns space="20px">
+        <Columns gap="20px">
           <Columns.Column width="content">
             <Box>Column 1</Box>
           </Columns.Column>
