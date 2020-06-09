@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { Columns } from "./Columns";
-
+import { ThemeProvider } from "emotion-theming";
 const yellowish = "rgb(245, 186, 76)";
 const bluish = "rgb(117, 172, 253)";
 
@@ -293,6 +293,30 @@ function ColumnWidthExamples() {
     </>
   );
 }
+function ScaleExample() {
+  const theme = {
+    space: [0, "4px", "8px", "12px", "16px", "20px"],
+    sizes: [0, "100px", "150px", "200px"]
+  };
+  return (
+    <ThemeProvider theme={theme}>
+      <Text size="24">Theming(scale based)</Text>
+      <Card>
+        <Columns gap="5">
+          <Columns.Column width="1">
+            <Box>Column 1</Box>
+          </Columns.Column>
+          <Columns.Column width="2">
+            <Box>Column 2</Box>
+          </Columns.Column>
+          <Columns.Column width="3">
+            <Box>Column 3</Box>
+          </Columns.Column>
+        </Columns>
+      </Card>
+    </ThemeProvider>
+  );
+}
 export default function App() {
   return (
     <>
@@ -305,6 +329,8 @@ export default function App() {
       <AlignYExamples />
       <br />
       <InlineExamples />
+      <br />
+      <ScaleExample />
     </>
   );
 }

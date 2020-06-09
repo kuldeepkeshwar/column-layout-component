@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import PropTypes from "prop-types";
 
 const alignments = [
   "start",
@@ -12,11 +13,17 @@ const alignments = [
 ];
 const alignmentsY = ["start", "end", "center", "stretch"];
 
+function gap({ theme: { space = {} } = {}, gap }) {
+  return space[gap] || gap || "0px";
+}
+function size({ theme: { sizes = {} } = {}, widths = [] }) {
+  return widths.map(w => sizes[w] || w).join(" ");
+}
 const Grid = styled.div`
   display: grid;
   width: ${({ inline }) => (inline ? "max-content" : "auto")};
-  column-gap: ${({ gap }) => gap || "0px"};
-  grid-template-columns: ${({ widths = [] }) => widths.join(" ")};
+  column-gap: ${gap};
+  grid-template-columns: ${size};
   justify-content: ${({ align }) => align || "stretch"};
   align-items: ${({ alignY }) => alignY || "stretch"};
 `;
@@ -41,7 +48,16 @@ export function Columns({ children, gap, align, alignY, inline }) {
     </Grid>
   );
 }
+Columns.proppTypes = {
+  gap: PropTypes.string,
+  align: PropTypes.oneOf(alignments),
+  alignY: PropTypes.oneOf(alignmentsY),
+  inline: PropTypes.bool
+};
 function Column({ children }) {
   return <Cell>{children}</Cell>;
 }
+Column.proppTypes = {
+  width: PropTypes.string
+};
 Columns.Column = Column;
