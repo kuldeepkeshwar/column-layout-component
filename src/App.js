@@ -323,6 +323,9 @@ function ScaleExample() {
       </Text>
       <Example
         code={`
+// space: [0, "4px", "8px", "12px", "16px", "20px"]
+// sizes: [0, "100px", "150px", "200px"]
+
 <Columns gap="5">
   <Columns.Column width="1">
     <Box>Column 1</Box>
