@@ -14,6 +14,9 @@ const Box = styled.div`
   font-size: 20px;
   padding: 8px 0 8px 0;
   height: ${({ height }) => height || "auto"};
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const Text = styled.div`
   font-size: ${({ size = 12 }) => `${size}px`};
@@ -276,13 +279,13 @@ function ColumnWidthExamples() {
       <Text>Column Width: varying</Text>
       <Card>
         <Columns space="20px">
-          <Columns.Column width="100px">
+          <Columns.Column width="content">
             <Box>Column 1</Box>
           </Columns.Column>
-          <Columns.Column width="150px">
+          <Columns.Column width="100px">
             <Box>Column 2</Box>
           </Columns.Column>
-          <Columns.Column width="200px">
+          <Columns.Column width="150px">
             <Box>Column 3</Box>
           </Columns.Column>
         </Columns>
