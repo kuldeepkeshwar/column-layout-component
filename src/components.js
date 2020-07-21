@@ -1,4 +1,5 @@
-import styled from "@emotion/styled";
+
+import { styled } from "@filbert-js/macro";
 
 export const yellowish = "rgb(245, 186, 76)";
 export const bluish = "rgb(117, 172, 253)";

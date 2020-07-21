@@ -1,6 +1,6 @@
 import React from "react";
 import { Columns } from "./Columns";
-import { ThemeProvider } from "emotion-theming";
+import { ThemeProvider } from "@filbert-js/theming";
 import ExampleHOF from "./Example";
 import { Text, Box } from "./components";
 

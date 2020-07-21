@@ -1,5 +1,6 @@
 import React from "react";
-import styled from "@emotion/styled";
+
+import { styled } from "@filbert-js/macro";
 import PropTypes from "prop-types";
 
 const alignments = [

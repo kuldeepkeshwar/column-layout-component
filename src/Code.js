@@ -1,5 +1,7 @@
 import React from "react";
-import styled from "@emotion/styled";
+
+import { styled } from "@filbert-js/macro";
+
 import Highlight, { defaultProps } from "prism-react-renderer";
 import theme from "prism-react-renderer/themes/nightOwl";
 
